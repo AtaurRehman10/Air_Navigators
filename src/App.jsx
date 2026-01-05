@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-montserrat flex flex-col">
+    <div className="min-h-screen bg-[#000] font-montserrat flex flex-col">
       {/* Hero Section */}
       <section className="relative w-full h-auto md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
 
@@ -278,12 +278,13 @@ function App() {
 
           {/* Animated Airplanes Overlay */}
           {/* Plane 1 - Main */}
-          <img
-            src={airplaneImage}
-            alt="Airplane 1"
-            className="absolute top-[25%] left-1/3 -translate-x-1/2 w-[100px] h-auto z-10 airplane-vibrate drop-shadow-[0_0_20px_rgba(0,150,255,0.3)] md:w-[315px]"
-          />
-
+          <div className="absolute top-[12%] left-[40%] -translate-x-1/2 z-10 w-[100px] md:w-[250px]">
+            <img
+              src={airplaneImage}
+              alt="Airplane"
+              className="w-full h-auto airplane-vibrate drop-shadow-[0_0_20px_rgba(0,150,255,0.3)]"
+            />
+          </div>
           {/* Plane 2 - Secondary (Smaller & Faster) */}
           {/* <img
           src={airplaneImage}
@@ -340,22 +341,22 @@ function App() {
           <source src={videoFile} type="video/mp4" />
         </video>
 
-        {/* Overlay to darken video for text readability */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
+
 
 
       </section>
 
       {/* Footer Section */}
-      <footer className="w-full bg-black text-gray-400 py-12 border-t border-white/10 relative shrink-0">
+      <footer className="w-full bg-black text-gray-400 pb-12 pt-0 border-t border-white/10 relative shrink-0">
         {/* Top Glow */}
-        <div className="absolute top-16 left-0 w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+        <div className="absolute top-8 left-0 w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
+
 
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-4 md:gap-10 items-start mb-6">
             {/* Logo Column - Full width on mobile, 1st col on desktop */}
             <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-              <img src={footerImage} alt="Air Navigators Logo" className="max-w-[450px] sm:max-w-[310px]" />
+              <img src={footerImage} alt="Air Navigators Logo" className="lg:max-w-[450px] sm:max-w-[310px]" />
 
 
             </div>
@@ -408,7 +409,7 @@ function App() {
             </div>
           </div>
 
-          <div className="w-[100%] mx-auto h-[2px] bg-white/20"></div>
+          <div className="w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
 
 
 
