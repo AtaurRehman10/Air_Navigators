@@ -118,7 +118,7 @@ function App() {
                 <ul className={`
                   ${isMobileMenuOpen
                     ? `relative bg-transparent w-auto mt-2 pl-4 text-center overflow-hidden transition-all duration-300 ${expandedMenus['expertise'] ? 'max-h-[800px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
-                    : 'absolute top-full left-0 mt-4 w-max bg-[#0a0a0a] rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
+                    : 'absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
                   } 
                    z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap
                 `}>
@@ -146,7 +146,7 @@ function App() {
                     relative group/sub px-5 py-3 hover:text-white transition-colors flex flex-col md:flex-row md:justify-between items-center md:items-center uppercase
                   `}>
                     <div
-                      className="flex items-center justify-between w-full md:w-auto gap-2 cursor-pointer"
+                      className="flex items-center justify-center w-auto md:justify-between md:w-full gap-2 cursor-pointer"
                       onClick={(e) => {
                         if (isMobileMenuOpen) {
                           e.stopPropagation();
@@ -167,7 +167,7 @@ function App() {
                     <ul className={`
                       ${isMobileMenuOpen
                         ? `relative bg-transparent w-full mt-2 pl-4 text-center overflow-hidden transition-all duration-300 ${expandedMenus['us_ops'] ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
-                        : 'absolute top-0 left-full mt-0 w-max bg-[#0a0a0a] rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
+                        : 'absolute top-0 left-full mt-0 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
                       } 
                       flex flex-col whitespace-nowrap
                     `}>
@@ -213,20 +213,108 @@ function App() {
                 </ul>
               </li>
 
+              <li className={`relative cursor-pointer group flex flex-col items-center ${isMobileMenuOpen ? '' : ''}`}>
+                <span
+                  className="pb-1 hover:text-gray-300 transition-colors flex items-center gap-1"
+                  onClick={() => isMobileMenuOpen && toggleSubmenu('other_services')}
+                >
+                  OTHER SERVICES
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className={`mt-[2px] transition-transform duration-300 ${expandedMenus['other_services'] ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full hidden md:block"></span>
+
+                {/* Dropdown Menu */}
+                <ul className={`
+                  ${isMobileMenuOpen
+                    ? `relative bg-transparent w-auto mt-2 pl-4 text-center overflow-hidden transition-all duration-300 ${expandedMenus['other_services'] ? 'max-h-[800px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
+                    : 'absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
+                  } 
+                   z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap
+                `}>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Air Charter
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Ground Handling
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Concierge
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Re-fueling
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+
               <li className="relative cursor-pointer group text-center">
                 <span className="pb-1 hover:text-gray-300 transition-colors">TRAININGS</span>
                 <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
 
-              <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">MISSION ACTIVATION</span>
-                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+              <li className={`relative cursor-pointer group flex flex-col items-center ${isMobileMenuOpen ? '' : ''}`}>
+                <span
+                  className="pb-1 hover:text-gray-300 transition-colors flex items-center gap-1"
+                  onClick={() => isMobileMenuOpen && toggleSubmenu('missions')}
+                >
+                  MISSIONS
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className={`mt-[2px] transition-transform duration-300 ${expandedMenus['missions'] ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full hidden md:block"></span>
+
+                {/* Dropdown Menu */}
+                <ul className={`
+                  ${isMobileMenuOpen
+                    ? `relative bg-transparent w-auto mt-2 pl-4 text-center overflow-hidden transition-all duration-300 ${expandedMenus['missions'] ? 'max-h-[800px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
+                    : 'absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5'
+                  } 
+                   z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap
+                `}>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Civil Operations
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 md:text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      MEDEVAC
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                </ul>
               </li>
 
-              <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">CAREERS</span>
-                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
-              </li>
+
 
               <li className="relative cursor-pointer group text-center">
                 <span className="pb-1 hover:text-gray-300 transition-colors">CONTACT US</span>
@@ -237,7 +325,7 @@ function App() {
         </nav>
 
         {/* Mobile World Time Display - Moved after Nav per request */}
-        <div className="block md:hidden bg-[#0a0a0a] w-full py-4 px-2 font-digital border-b border-white/10 z-40 relative">
+        <div className="block md:hidden bg-black/80 backdrop-blur-md w-full py-4 px-2 font-digital border-b border-white/10 z-40 relative">
           <div className="grid grid-cols-1 gap-y-2 text-[13px] font-bold text-gray-300 w-full pl-2">
 
             {/* Row 1: Dallas and UTC */}
