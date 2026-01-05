@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import heroImage from './assets/image1.jpg';
-// import airplaneImage from './assets/Airplane.png';
-import footerImage from './assets/image3.png';
+import heroImage from './assets/bgImg.png';
+import airplaneImage from './assets/image2.png';
+import footerImage from './assets/logo.jpg';
 import videoFile from './assets/video.mp4';
 // Removed footerImage as we are building the footer in code
 
@@ -50,8 +50,8 @@ function App() {
       {/* Hero Section */}
       <section className="relative w-full h-auto md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
 
-        {/* Navigation Bar - Moved to Top for Mobile Stacking */}
-        <nav className="relative md:absolute md:top-0 lg:top-[100%] w-full z-50 bg-[#0a0a0a] md:bg-transparent">
+        {/* Navigation Bar - Moved down to match horizon */}
+        <nav className="relative md:absolute md:top-[85%] w-full z-50 bg-transparent transition-all duration-300">
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex justify-between items-center p-6">
             <span className="text-white font-bold text-lg tracking-widest">Air Navigators</span>
@@ -214,22 +214,22 @@ function App() {
               </li>
 
               <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">Other Services</span>
+                <span className="pb-1 hover:text-gray-300 transition-colors">TRAININGS</span>
                 <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
 
               <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">Training</span>
+                <span className="pb-1 hover:text-gray-300 transition-colors">MISSION ACTIVATION</span>
                 <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
 
               <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">Missions</span>
+                <span className="pb-1 hover:text-gray-300 transition-colors">CAREERS</span>
                 <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
 
               <li className="relative cursor-pointer group text-center">
-                <span className="pb-1 hover:text-gray-300 transition-colors">Contact Us</span>
+                <span className="pb-1 hover:text-gray-300 transition-colors">CONTACT US</span>
                 <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
             </ul>
@@ -268,22 +268,21 @@ function App() {
         </div>
 
         {/* Background Elements Container - Prevents horizontal scroll from animations */}
-        <div className="relative h-[25vh] md:h-full md:absolute md:inset-0 w-full overflow-hidden z-0 pointer-events-none">
+        <div className="relative h-[250px] md:h-full md:absolute md:inset-0 w-full overflow-hidden z-0 pointer-events-none">
           {/* Background Image */}
           <img
             src={heroImage}
             alt="Earth from space"
-            className="absolute top-0 left-0 w-full  z-0"
+            className="absolute top-0 md:top-[45%] left-0 w-full object-cover z-0"
           />
 
           {/* Animated Airplanes Overlay */}
           {/* Plane 1 - Main */}
-          {/* <img
-          src={airplaneImage}
-          alt="Airplane 1"
-          className="absolute top-[12%] left-0 w-[160px] h-auto z-10 airplane-fly drop-shadow-[0_0_20px_rgba(0,150,255,0.3)] md:w-[110px]"
-          style={{ animationDuration: '18s' }}
-        /> */}
+          <img
+            src={airplaneImage}
+            alt="Airplane 1"
+            className="absolute top-[25%] left-1/3 -translate-x-1/2 w-[100px] h-auto z-10 airplane-vibrate drop-shadow-[0_0_20px_rgba(0,150,255,0.3)] md:w-[315px]"
+          />
 
           {/* Plane 2 - Secondary (Smaller & Faster) */}
           {/* <img
@@ -298,7 +297,7 @@ function App() {
 
 
         {/* World Time Display */}
-        <div className="absolute top-[8%] left-[10%] z-30 font-digital text-[16px] sm:text-xs font-bold leading-tight drop-shadow-md text-right hidden md:block">
+        <div className="absolute top-[10%] left-[10%] z-30 font-digital text-[16px] sm:text-xs font-bold leading-tight drop-shadow-md text-right hidden md:block">
           <div className="grid grid-cols-[max-content_max-content_max-content] gap-x-4 gap-y-1 items-center justify-end">
             {/* Dallas */}
             <span className="text-gray-300">DALLAS</span>
@@ -336,7 +335,7 @@ function App() {
           muted
           loop
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          className="absolute top-[-10%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
@@ -350,18 +349,20 @@ function App() {
       {/* Footer Section */}
       <footer className="w-full bg-black text-gray-400 py-12 border-t border-white/10 relative shrink-0">
         {/* Top Glow */}
-        <div className="absolute top-0 left-0 w-full  from-transparent via-white/20 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+        <div className="absolute top-16 left-0 w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
 
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-8 md:gap-10 items-start mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-4 md:gap-10 items-start mb-6">
             {/* Logo Column - Full width on mobile, 1st col on desktop */}
             <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-              <img src={footerImage} alt="Air Navigators Logo" className="max-w-[240px] md:max-w-[280px] mb-2" />
+              <img src={footerImage} alt="Air Navigators Logo" className="max-w-[450px] " />
+
+
             </div>
 
             {/* Contact Info Column */}
             <div className="col-span-1 flex flex-col  text-[13px] leading-relaxed w-full">
-              <div className="flex flex-col space-y-3 md:grid md:grid-cols-[max-content_1fr] md:gap-x-8 md:items-center md:space-y-0 ">
+              <div className="flex flex-col space-y-3 md:grid md:grid-cols-[max-content_1fr] md:gap-x-8 md:items-center md:space-y-0 lg:mt-16">
                 <div className="flex flex-col md:contents">
                   <span className="font-bold text-white text-[12px] md:text-right">Phone Main</span>
                   <span className="text-gray-400 font-light tracking-wide text-[13px]">+92 51 55 70 123</span>
@@ -385,7 +386,7 @@ function App() {
             </div>
 
             {/* Address Column */}
-            <div className="col-span-1 flex flex-col text-[12px] leading-relaxed w-full">
+            <div className="col-span-1 flex flex-col text-[12px] leading-relaxed w-full lg:mt-16">
               <div className="flex flex-col md:grid md:grid-cols-[max-content_1fr] md:gap-x-12 md:items-start">
                 <span className="font-bold text-white text-[12px] mb-1 md:mb-0 md:text-right md:mt-1 md:ml-2.5">Address</span>
                 <div className="flex flex-col text-gray-400 font-light tracking-wide text-[13px]">
@@ -407,10 +408,33 @@ function App() {
             </div>
           </div>
 
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+          <div className="w-[100%] mx-auto h-[2px] bg-white/20"></div>
+
+
+
+
 
           {/* Bottom Copyright Section */}
-          <div className="w-full flex flex-col items-center gap-2 text-[11px] text-white font-light tracking-wider pt-8">
+          <div className="w-full flex flex-col items-center gap-2 text-[11px] text-white font-light tracking-wider pt-4 relative">
+
+            {/* Social Follow - Moved here */}
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-white text-[15px] font-normal tracking-wide">Follow us on</span>
+              <div className="flex items-center gap-3">
+                {/* X (Formerly Twitter) */}
+                <a href="#" className="text-white hover:text-gray-300 transition-colors group">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                  </svg>
+                </a>
+                {/* LinkedIn */}
+                <a href="#" className="text-white hover:text-gray-300 transition-colors">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.21-.43-2-1.52-2A1.6 1.6 0 0012.92 14c-.06.28-.06.56-.06.84V19h-3v-9h3v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 4.04z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
             <div className="flex flex-wrap justify-center gap-x-2 gap-y-1">
               <span className="hover:text-gray-400 cursor-pointer transition-colors">Copyrights</span>
               <span>|</span>
@@ -426,9 +450,34 @@ function App() {
             </div>
             <p className="mt-2 text-[10px]">AIR NAVIGATORS (PVT) LTD © 2012-2022 All rights reserved</p>
             <p>D-U-N-S Number <span className="text-gray-100">64-583-5179</span></p>
+
+            {/* Digital Time Display */}
+            <div className="md:absolute md:right-0 md:bottom-2 font-digital text-xl text-white mt-4 md:mt-0 tracking-widest" style={{ textShadow: "2px 2px 0px rgba(0, 255, 255, 0.5), -2px -2px 0px rgba(255, 0, 0, 0.5)" }}>
+              {currentTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 hover:scale-110 transition-transform duration-300 group"
+      >
+        <div className="bg-[#25D366] p-2 rounded-full shadow-lg shadow-black/30 group-hover:shadow-[#25D366]/40">
+          <svg
+            className="w-8 h-8 text-white fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fillRule="evenodd" clipRule="evenodd" d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461 1.993 0 3.866.778 5.275 2.188a7.432 7.432 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112-.149.224-.579.73-.709.88-.131.149-.261.168-.486.056-.224-.112-.953-.351-1.815-1.12-.667-.594-1.117-1.329-1.248-1.554-.131-.224-.014-.345.099-.457.101-.099.224-.262.336-.393.112-.131.149-.224.224-.374.075-.149.038-.281-.019-.393-.056-.112-.504-1.214-.69-1.662-.181-.435-.366-.377-.504-.383-.131-.006-.28-.006-.43-.006-.149 0-.393.056-.599.28-.205.225-.785.767-.785 1.871 0 1.104.804 2.171.916 2.32.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.147 1.413.089.43-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.205-.149-.43-.261" />
+          </svg>
+        </div>
+      </a>
     </div>
   );
 }
