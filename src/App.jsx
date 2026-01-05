@@ -361,7 +361,7 @@ function App() {
           <img
             src={heroImage}
             alt="Earth from space"
-            className="absolute top-0 md:top-[40%] left-0 w-full object-cover z-0"
+            className="absolute top-0 md:top-[45%] left-0 w-full object-cover z-0"
           />
 
           {/* Animated Airplanes Overlay */}
@@ -386,7 +386,7 @@ function App() {
 
 
         {/* World Time Display */}
-        <div className="absolute top-[10%] left-[10%] z-30 font-digital text-[16px] sm:text-xs font-bold leading-tight drop-shadow-md text-right hidden md:block">
+        <div className="absolute top-[10%] left-[3%] z-30 font-digital text-[16px] sm:text-xs font-bold leading-tight drop-shadow-md text-right hidden md:block">
           <div className="grid grid-cols-[max-content_max-content_max-content] gap-x-4 gap-y-1 items-center justify-end">
             {/* Dallas */}
             <span className="text-gray-300">DALLAS</span>
@@ -424,7 +424,7 @@ function App() {
           muted
           loop
           playsInline
-          className="absolute top-[-10%] left-0 w-full h-[120%] object-cover z-0"
+          className="absolute top-[-15%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>

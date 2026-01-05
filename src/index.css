@@ -52,5 +52,5 @@
 }
 
 .airplane-vibrate {
-  animation: vibrate 6s linear infinite;
+  animation: vibrate 20s ease-in-out infinite;
 }
