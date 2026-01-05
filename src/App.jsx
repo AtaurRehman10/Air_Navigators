@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import heroImage from './assets/bgImg.png';
+import heroImage from './assets/m.png';
 import airplaneImage from './assets/image2.png';
 import footerImage from './assets/logo.jpg';
 import videoFile from './assets/video.mp4';
@@ -273,7 +273,7 @@ function App() {
           <img
             src={heroImage}
             alt="Earth from space"
-            className="absolute top-0 md:top-[45%] left-0 w-full object-cover z-0"
+            className="absolute top-0 md:top-[40%] left-0 w-full object-cover z-0"
           />
 
           {/* Animated Airplanes Overlay */}
