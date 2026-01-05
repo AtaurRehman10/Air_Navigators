@@ -355,7 +355,7 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-4 md:gap-10 items-start mb-6">
             {/* Logo Column - Full width on mobile, 1st col on desktop */}
             <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-              <img src={footerImage} alt="Air Navigators Logo" className="max-w-[450px] " />
+              <img src={footerImage} alt="Air Navigators Logo" className="max-w-[450px] sm:max-w-[310px]" />
 
 
             </div>
