@@ -3,6 +3,7 @@ import heroImage from './assets/m.png';
 import airplaneImage from './assets/image2.png';
 import footerImage from './assets/logo.jpg';
 import videoFile from './assets/video.mp4';
+import line from './assets/line.jpeg';
 // Removed footerImage as we are building the footer in code
 
 function App() {
@@ -366,13 +367,17 @@ function App() {
 
           {/* Animated Airplanes Overlay */}
           {/* Plane 1 - Main */}
-          <div className="absolute top-[12%] left-[40%] -translate-x-1/2 z-10 w-[100px] md:w-[250px]">
-            <img
-              src={airplaneImage}
-              alt="Airplane"
-              className="w-full h-auto airplane-vibrate drop-shadow-[0_0_20px_rgba(0,150,255,0.3)]"
-            />
+          <div className="absolute top-[18%] left-[40%] -translate-x-1/2 z-10 w-[100px] md:w-[200px] pointer-events-none">
+            <div className="airplane-vibrate">
+              <img
+                src={airplaneImage}
+                alt="Airplane"
+                className="plane-fix"
+              />
+            </div>
           </div>
+
+
           {/* Plane 2 - Secondary (Smaller & Faster) */}
           {/* <img
           src={airplaneImage}
@@ -429,19 +434,74 @@ function App() {
           <source src={videoFile} type="video/mp4" />
         </video>
 
+        {/* Random organic shapes overlay at the bottom for natural transition */}
+        <div className="absolute bottom-[-10%] left-0 w-full h-[200px] z-10 pointer-events-none">
+          <svg
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            className="w-full h-full"
+            style={{ filter: 'blur(10px)' }}
+          >
+            <defs>
+              <linearGradient id="fadeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0" />
+                <stop offset="20%" stopColor="#000" stopOpacity="0.3" />
+                <stop offset="40%" stopColor="#000" stopOpacity="0.6" />
+                <stop offset="55%" stopColor="#000" stopOpacity="0.85" />
+                <stop offset="70%" stopColor="#000" stopOpacity="0.95" />
+                <stop offset="80%" stopColor="#000" stopOpacity="1" />
+                <stop offset="100%" stopColor="#000" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            {/* Base fade layer */}
+            <rect x="0" y="0" width="1440" height="200" fill="url(#fadeGradient)" />
 
+            {/* Organic blob shapes - starting higher to fill completely */}
+            <path
+              d="M0,80 C50,50 120,70 200,55 S350,30 450,50 S600,80 700,60 S850,25 950,55 S1100,75 1200,40 S1350,65 1440,50 L1440,200 L0,200 Z"
+              fill="#000"
+            />
+            <path
+              d="M0,100 C80,130 150,70 280,110 S400,60 520,90 S680,130 800,100 S920,50 1050,120 S1200,70 1300,110 S1380,80 1440,100 L1440,200 L0,200 Z"
+              fill="#000"
+            />
+            <path
+              d="M0,120 C100,150 200,90 320,130 S480,160 600,100 S750,140 900,110 S1050,160 1150,100 S1280,150 1360,120 L1440,140 L1440,200 L0,200 Z"
+              fill="#000"
+            />
 
+            {/* Additional coverage layer */}
+            <path
+              d="M0,140 C60,120 140,150 240,130 S380,110 500,140 S640,160 760,130 S900,100 1020,150 S1160,120 1280,145 S1380,130 1440,150 L1440,200 L0,200 Z"
+              fill="#000"
+            />
+
+            {/* Scattered circles for organic top edge */}
+            <circle cx="60" cy="95" r="12" fill="#000" />
+            <circle cx="180" cy="85" r="10" fill="#000" />
+            <circle cx="320" cy="100" r="14" fill="#000" />
+            <circle cx="480" cy="90" r="11" fill="#000" />
+            <circle cx="620" cy="105" r="13" fill="#000" />
+            <circle cx="780" cy="88" r="12" fill="#000" />
+            <circle cx="940" cy="98" r="15" fill="#000" />
+            <circle cx="1100" cy="92" r="11" fill="#000" />
+            <circle cx="1260" cy="102" r="13" fill="#000" />
+            <circle cx="1380" cy="95" r="10" fill="#000" />
+          </svg>
+        </div>
 
       </section>
 
       {/* Footer Section */}
-      <footer className="w-full bg-black text-gray-400 pb-12 pt-0 border-t border-white/10 relative shrink-0">
-        {/* Top Glow */}
-        <div className="absolute top-8 left-0 w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
+      <footer className="w-full bg-black text-gray-400 pb-12 pt-0 relative shrink-0">
+        {/* Top Line Image */}
+        <div className="absolute top-0 left-0 w-full flex justify-center">
+          <img src={line} alt="" className="w-full max-w-[1200px] " />
+        </div>
 
 
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-4 md:gap-10 items-start mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-x-4 gap-y-4 md:gap-10 items-start ">
             {/* Logo Column - Full width on mobile, 1st col on desktop */}
             <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
               <img src={footerImage} alt="Air Navigators Logo" className="lg:max-w-[450px] sm:max-w-[310px]" />
@@ -497,7 +557,9 @@ function App() {
             </div>
           </div>
 
-          <div className="w-full h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
+          <div className="w-full flex justify-center">
+            <img src={line} alt="" className="w-full" />
+          </div>
 
 
 
