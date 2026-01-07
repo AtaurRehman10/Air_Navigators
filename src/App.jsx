@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import heroImage from './assets/m.png';
 import airplaneImage from './assets/image2.png';
 import footerImage from './assets/logo.jpg';
-import videoFile from './assets/video.mp4';
+import videoFile from './assets/video3.mp4';
 import line from './assets/line.jpeg';
 // Removed footerImage as we are building the footer in code
 
@@ -10,6 +10,7 @@ function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
+  const videoRef = useRef(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -49,10 +50,10 @@ function App() {
   return (
     <div className="min-h-screen bg-[#000] font-montserrat flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-auto md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
+      <section className="relative w-full h-[34vh] md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
 
         {/* Navigation Bar - Moved down to match horizon */}
-        <nav className="relative md:absolute md:top-[85%] w-full z-50 bg-transparent transition-all duration-300">
+        <nav className="relative md:absolute md:top-[90%] w-full z-50 bg-transparent transition-all duration-300">
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex justify-between items-center p-6">
             <span className="text-white font-bold text-lg tracking-widest">Air Navigators</span>
@@ -425,11 +426,17 @@ function App() {
       {/* Video Section */}
       <section className="relative w-full h-screen overflow-hidden shrink-0">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute top-[-15%] left-0 w-full h-[120%] object-cover z-0"
+          onLoadedMetadata={() => {
+            if (videoRef.current) {
+              videoRef.current.playbackRate = 0.4;
+            }
+          }}
+          className="absolute top-[-22%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
@@ -489,7 +496,6 @@ function App() {
             <circle cx="1380" cy="95" r="10" fill="#000" />
           </svg>
         </div>
-
       </section>
 
       {/* Footer Section */}
