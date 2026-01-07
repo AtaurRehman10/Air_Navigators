@@ -53,7 +53,7 @@ function App() {
       <section className="relative w-full h-[34vh] md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
 
         {/* Navigation Bar - Moved down to match horizon */}
-        <nav className="relative md:absolute md:top-[90%] w-full z-50 bg-transparent transition-all duration-300">
+        <nav className="relative md:absolute md:top-[89%] w-full z-50 bg-transparent transition-all duration-300">
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex justify-between items-center p-6">
             <span className="text-white font-bold text-lg tracking-widest">Air Navigators</span>
@@ -417,6 +417,11 @@ function App() {
             {/* Tokyo */}
             <span className="text-gray-500">TOKYO</span>
             <span className="text-gray-500">{getFormattedTime(9)}</span>
+            <span></span>
+
+            {/* 30° West - Greenland */}
+            <span className="text-gray-500">30° WEST</span>
+            <span className="text-gray-500">{getFormattedTime(-2)}</span>
             <span></span>
           </div>
         </div>
