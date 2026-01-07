@@ -425,7 +425,7 @@ function App() {
       {/* Video Section */}
       <section className="relative w-full h-screen overflow-hidden shrink-0">
         {/* Navigation Bar - Desktop/Tablet - Overlaying Video */}
-        <nav className="hidden md:block absolute top-4 w-full z-50 bg-transparent">
+        <nav className="hidden md:block absolute top-8 w-full z-50 bg-transparent">
           <div className="w-full md:bg-transparent">
             <ul className="flex flex-row gap-6 md:gap-10 text-[10px] sm:text-xs items-center justify-center text-white font-medium tracking-[0.2em] transition-all duration-300">
 
@@ -639,7 +639,7 @@ function App() {
               videoRef.current.playbackRate = 0.4;
             }
           }}
-          className="absolute top-[-28%] left-0 w-full h-[120%] object-cover z-0"
+          className="absolute top-[-22%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
