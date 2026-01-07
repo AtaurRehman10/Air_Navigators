@@ -73,7 +73,7 @@ function App() {
 
           {/* Wrapper for Desktop/Mobile */}
           <div
-            className={`absolute top-full left-0 w-full 
+            className={`mt-7 absolute top-full left-0 w-full 
   bg-black/10 backdrop-blur-lg 
   overflow-hidden transition-all duration-500 ease-in-out
   ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'}
@@ -363,7 +363,7 @@ function App() {
           <img
             src={heroImage}
             alt="Earth from space"
-            className="absolute top-0 md:top-[45%] left-0 w-full object-cover z-0"
+            className="absolute top-0 md:top-[47%] left-0 w-full object-cover z-0"
           />
 
           {/* Animated Airplanes Overlay */}
@@ -377,9 +377,6 @@ function App() {
               />
             </div>
           </div>
-
-
-
 
         </div>
 
@@ -639,7 +636,7 @@ function App() {
               videoRef.current.playbackRate = 0.4;
             }
           }}
-          className="absolute top-[-22%] left-0 w-full h-[120%] object-cover z-0"
+          className="absolute top-[-25%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
