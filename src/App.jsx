@@ -50,10 +50,10 @@ function App() {
   return (
     <div className="min-h-screen bg-[#000] font-montserrat flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-[34vh] md:h-[38vh] shrink-0 z-50 flex flex-col md:block">
+      <section className="relative w-full h-[27vh] md:h-[28vh] shrink-0 z-50 flex flex-col md:block">
 
-        {/* Navigation Bar - Moved down to match horizon */}
-        <nav className="relative md:absolute md:top-[89%] w-full z-50 bg-transparent transition-all duration-300">
+        {/* Navigation Bar - Mobile Only (Desktop/Tablet nav is on video section) */}
+        <nav className="relative md:hidden w-full z-50 bg-transparent transition-all duration-300">
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex justify-between items-center p-6">
             <span className="text-white font-bold text-lg tracking-widest">Air Navigators</span>
@@ -367,8 +367,8 @@ function App() {
           />
 
           {/* Animated Airplanes Overlay */}
-          {/* Plane 1 - Main */}
-          <div className="absolute top-[18%] left-[40%] -translate-x-1/2 z-10 w-[100px] md:w-[200px] pointer-events-none">
+          {/* Plane 1 - Main (Desktop/Tablet only) */}
+          <div className="hidden md:block absolute top-[18%] left-[40%] -translate-x-1/2 z-10 w-[100px] md:w-[200px] pointer-events-none">
             <div className="airplane-vibrate">
               <img
                 src={airplaneImage}
@@ -379,13 +379,7 @@ function App() {
           </div>
 
 
-          {/* Plane 2 - Secondary (Smaller & Faster) */}
-          {/* <img
-          src={airplaneImage}
-          alt="Airplane 2"
-          className="absolute top-[18%] left-0 w-[120px] h-auto z-10 airplane-fly drop-shadow-[0_0_20px_rgba(0,150,255,0.3)] md:w-[80px]"
-          style={{ animationDuration: '14s', animationDelay: '3s' }}
-        /> */}
+
 
         </div>
 
@@ -430,6 +424,210 @@ function App() {
 
       {/* Video Section */}
       <section className="relative w-full h-screen overflow-hidden shrink-0">
+        {/* Navigation Bar - Desktop/Tablet - Overlaying Video */}
+        <nav className="hidden md:block absolute top-4 w-full z-50 bg-transparent">
+          <div className="w-full md:bg-transparent">
+            <ul className="flex flex-row gap-6 md:gap-10 text-[10px] sm:text-xs items-center justify-center text-white font-medium tracking-[0.2em] transition-all duration-300">
+
+              <li className="relative cursor-pointer group text-center">
+                <span className="pb-1">HOME</span>
+                <span className="absolute bottom-[-8px] left-0 h-[2px] bg-[#E31E24] w-full"></span>
+              </li>
+
+              <li className="relative cursor-pointer group text-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors">ABOUT US</span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+              </li>
+
+              <li className="relative cursor-pointer group text-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors">VISION & MISSION</span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+              </li>
+
+              <li className="relative cursor-pointer group flex flex-col items-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors flex items-center gap-1">
+                  EXPERTISE
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="mt-[2px]"
+                  >
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+
+                {/* Dropdown Menu */}
+                <ul className="absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5 z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap">
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Flight Dispatch
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Flight Clearances
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Special Permits
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+
+                  {/* Nested Dropdown: US Operations */}
+                  <li className="relative group/sub px-5 py-3 hover:text-white transition-colors flex flex-row justify-between items-center uppercase">
+                    <div className="flex items-center justify-between w-full gap-2 cursor-pointer">
+                      <span className="relative">
+                        US Operations
+                        <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/sub:w-full"></span>
+                      </span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="-rotate-90 text-gray-500 group-hover/sub:text-white transition-transform duration-300">
+                        <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                      </svg>
+                    </div>
+
+                    {/* Nested Sub-Menu */}
+                    <ul className="absolute top-0 left-full mt-0 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 pt-2 pb-2 border border-white/5 flex flex-col whitespace-nowrap">
+                      <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                        <span className="relative group-hover/item:text-white transition-colors">
+                          TSA Waiver
+                          <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                        </span>
+                      </li>
+                      <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                        <span className="relative group-hover/item:text-white transition-colors">
+                          FAA Special Route Authorization
+                          <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                        </span>
+                      </li>
+                      <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                        <span className="relative group-hover/item:text-white transition-colors">
+                          US eAPIS Filing
+                          <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                        </span>
+                      </li>
+                      <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                        <span className="relative group-hover/item:text-white transition-colors">
+                          Border Overflight Exemption (BOE)
+                          <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      APIS
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Re-fueling
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="relative cursor-pointer group flex flex-col items-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors flex items-center gap-1">
+                  OTHER SERVICES
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="mt-[2px]"
+                  >
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+
+                {/* Dropdown Menu */}
+                <ul className="absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5 z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap">
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Air Charter
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Ground Handling
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Concierge
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Re-fueling
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="relative cursor-pointer group text-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors">TRAININGS</span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+              </li>
+
+              <li className="relative cursor-pointer group flex flex-col items-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors flex items-center gap-1">
+                  MISSIONS
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="mt-[2px]"
+                  >
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+
+                {/* Dropdown Menu */}
+                <ul className="absolute top-full left-0 mt-4 w-max bg-black/80 backdrop-blur-md rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pt-2 pb-2 border border-white/5 z-50 flex flex-col text-[11px] tracking-widest text-gray-300 whitespace-nowrap">
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      Civil Operations
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                  <li className="px-5 py-3 text-left uppercase group/item cursor-pointer">
+                    <span className="relative group-hover/item:text-white transition-colors">
+                      MEDEVAC
+                      <span className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover/item:w-full"></span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="relative cursor-pointer group text-center">
+                <span className="pb-1 hover:text-gray-300 transition-colors">CONTACT US</span>
+                <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-[#E31E24] transition-all duration-300 ease-out group-hover:w-full"></span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <video
           ref={videoRef}
           autoPlay
@@ -441,10 +639,21 @@ function App() {
               videoRef.current.playbackRate = 0.4;
             }
           }}
-          className="absolute top-[-30%] left-0 w-full h-[120%] object-cover z-0"
+          className="absolute top-[-24%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
+
+        {/* Airplane - Mobile Only (shown on video section) */}
+        <div className="md:hidden absolute top-0 left-[50%] -translate-x-1/2 z-20 w-[100px] pointer-events-none">
+          <div className="airplane-vibrate">
+            <img
+              src={airplaneImage}
+              alt="Airplane"
+              className="plane-fix"
+            />
+          </div>
+        </div>
 
         {/* Random organic shapes overlay at the bottom for natural transition */}
         <div className="absolute bottom-[-10%] left-0 w-full h-[200px] z-10 pointer-events-none">
