@@ -639,7 +639,7 @@ function App() {
               videoRef.current.playbackRate = 0.4;
             }
           }}
-          className="absolute top-[-24%] left-0 w-full h-[120%] object-cover z-0"
+          className="absolute top-[-28%] left-0 w-full h-[120%] object-cover z-0"
         >
           <source src={videoFile} type="video/mp4" />
         </video>
